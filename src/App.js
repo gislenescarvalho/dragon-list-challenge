@@ -1,25 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import { Route, Switch, withRouter, Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import Login from './components/Login'
+import DragonList from './components/DragonsList'
+import Dragon from './components/Dragon'
+import { ThemeProvider } from 'styled-components'
+import { lightTheme, darkTheme } from './styles/theme'
+import GlobalStyles from './styles/globalStyles'
 
-function App() {
+const App = props => {
+  const [isDarkTheme, setIsDarkTheme] = useState(false)
+  const { isLoggedIn } = props
+
+  const getRoutes = () => {
+    return !isLoggedIn
+      ? (
+      <Switch>
+        <Route path="/" exact component={Login} />
+        <Redirect to="/" />
+      </Switch>
+        )
+      : (
+      <Switch>
+        <Route path="/" exact component={Login} />
+        <Route path="/dragon/:id" render={props => <Dragon {...props} />} />
+        <Route path="/list" exact component={DragonList} />
+        <Redirect to="/" />
+      </Switch>
+        )
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
+      <div className="container">
+        <GlobalStyles />
+        <header className="header">{getRoutes()}</header>
+        <button className="accent" onClick={() => setIsDarkTheme(!isDarkTheme)}>
+          Dark Mode: {isDarkTheme ? 'On' : 'Off'}
+        </button>
+      </div>
+    </ThemeProvider>
+  )
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    isLoggedIn: state.auth.isLoggedIn
+  }
+}
+
+export default withRouter(connect(mapStateToProps, null)(App))
