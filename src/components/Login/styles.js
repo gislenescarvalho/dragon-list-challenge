@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Input from '../Input'
 
-export const Login = styled.form`
+export const LoginContainer = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;

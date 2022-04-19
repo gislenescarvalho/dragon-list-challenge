@@ -14,10 +14,11 @@
     "coverage": "npm run test -- --coverage",
     "prebuild": "npm run clear",
     "clear": "rimraf dist test-results coverage *.log",
-    "clear:all": "rimraf dist test-results coverage node_modules *.log",
+    "clear:all": "rimraf dist test-results coverage node_modules *.log"
   },
   "dependencies": {
     "@babel/eslint-parser": "^7.5.4",
+    "@reduxjs/toolkit": "^1.8.1",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -57,7 +58,7 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.15.7",
     "@babel/preset-react": "^7.14.5",
-    "eslint": "^7.32.0",
+    "eslint": "5.6.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-babel": "^5.3.1",
     "eslint-plugin-import": "^2.24.2",

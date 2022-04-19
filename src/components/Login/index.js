@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../../store/actions'
 import { FaDragon } from 'react-icons/fa'
-import { SignButtons, Button, Logo, Login, InputText, ErrorMessage } from './styles'
+import { SignButtons, Button, Logo, LoginContainer, InputText, ErrorMessage } from './styles'
 
 const Login = props => {
   const { isLoggedIn, error } = props
@@ -57,7 +57,7 @@ const Login = props => {
       <Logo>
         <FaDragon size={96} />
       </Logo>
-      <Login onSubmit={submitHandler}>
+      <LoginContainer onSubmit={submitHandler}>
         <InputText
           placeholder="Username"
           id="username"
@@ -73,7 +73,7 @@ const Login = props => {
           value={formData.password}
         />
         {renderButton()}
-      </Login>
+      </LoginContainer>
       <div>{error && <ErrorMessage>{error}</ErrorMessage>}</div>
     </div>
   )

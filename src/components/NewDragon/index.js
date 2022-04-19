@@ -51,7 +51,7 @@ const NewDragon = props => {
         onChange={changeHandler}
       />
 
-      <SaveButton onClick={submitHandler}>
+      <SaveButton id="save-button-add-dragon" onClick={submitHandler}>
         <FaSave size={54} />
       </SaveButton>
       <div>{props.error && <ErrorMessage>{props.error}</ErrorMessage>}</div>

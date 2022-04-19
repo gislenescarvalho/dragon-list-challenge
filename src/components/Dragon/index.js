@@ -1,3 +1,5 @@
+/* eslint-disable max-statements */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../../store/actions'
@@ -26,7 +28,7 @@ const Dragon = props => {
 
   useEffect(() => {
     setDragonDetails({
-      ...props.location.state
+      ...props.location?.state
     })
     setWasDeleted(false)
   }, [])

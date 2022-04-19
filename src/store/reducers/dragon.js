@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 import * as actionTypes from '../actions/actionTypes'
 import { updateObject } from '../../utils/utils'
 
