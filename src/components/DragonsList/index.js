@@ -12,7 +12,9 @@ import {
   ErrorMessage,
   ActionsList,
   AddNewDragonBtn,
-  ListItem
+  ListItem,
+  AddNewDragonContainer,
+  Separator
 } from './styles'
 
 const DragonsList = props => {
@@ -44,33 +46,31 @@ const DragonsList = props => {
 
   return (
     <DragonList>
-      <div>
         <Logo>
           <FaDragon size={96} />
         </Logo>
         <List>{getDragonList(props)}</List>
-        <div>
-          <hr />
-          <div>{isAddingNew && <NewDragon />}</div>
+          <Separator />
+          <AddNewDragonContainer>
+          {isAddingNew && <NewDragon />}
           <ActionsList>
             <AddNewDragonBtn onClick={addNewDragonHandler}>
               {' '}
               {!isAddingNew ? (
                 <>
                   {' '}
-                  <FaPlus size={25} /> Add Dragon{' '}
+                  <FaPlus size={25} /> Add{' '}
                 </>
               ) : (
                 <>
                   {' '}
-                  <FaArrowCircleLeft size={25} /> Cancel Add Dragon{' '}
+                  <FaArrowCircleLeft size={25} /> Back {' '}
                 </>
               )}
             </AddNewDragonBtn>
           </ActionsList>
-        </div>
-        <div>{props.error && <ErrorMessage>{props.error}</ErrorMessage>}</div>
-      </div>
+          </AddNewDragonContainer>
+        {props.error && <ErrorMessage>{props.error}</ErrorMessage>}
     </DragonList>
   )
 }

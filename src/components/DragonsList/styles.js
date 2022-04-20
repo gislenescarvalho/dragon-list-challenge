@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const DragonList = styled.div`
   display: flex;
   flex-direction: column;
+  min-width: 300px;
 `
 
 export const ActionsList = styled.span`
@@ -32,21 +33,33 @@ export const List = styled.ul`
 
 export const ListItem = styled.li`
   list-style: none;
-  display: flex;
-  flex-grow: 1;
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
   align-items: center;
   cursor: pointer;
   border: 1px solid #013a20;
   border-radius: 25px;
   & svg {
-    margin: 4px;
+    margin-right: 8px;
   }
 `
 export const AddNewDragonBtn = styled.span`
   cursor: pointer;
-  border: 1px solid black;
-  padding: 5px;
+  border: 1px solid #013a20;
   border-radius: 15px;
+  padding: 5px;
+  width: 150px;
+  justify-content: center;
+  align-items: center;
+`
+
+export const AddNewDragonContainer = styled.div`
+  padding: 10px;
+  min-width: 300px;
+`
+export const Separator = styled.hr`
+  margin: 10px 0;
 `
 
 export const ErrorMessage = styled.p`

@@ -3,9 +3,7 @@ import { connect } from 'react-redux'
 import { updateObject } from '../../utils/utils'
 import * as actions from '../../store/actions'
 import { FaSave } from 'react-icons/fa'
-import { NewDragonContainer, SaveButton, Label, ErrorMessage } from './styles'
-
-import Input from '../Input'
+import { NewDragonContainer, SaveButton, Label, SaveAction, ErrorMessage, InputText, Group, Title } from './styles'
 
 const NewDragon = props => {
   const [addDragon, setNewDragon] = useState({
@@ -40,24 +38,31 @@ const NewDragon = props => {
     <>
       {allowToAdd && (
         <NewDragonContainer>
-          <Label>Name:</Label>
-          <Input
+          <Group>
+              <Title>Add new dragon:</Title>
+          <Label for="name">Name:</Label>
+          <InputText
             type="text"
             id="name"
+            name="name"
             placeholder="Name"
             onChange={changeHandler}
           />
-          <Label>Type:</Label>
-          <Input
+          <Label for="type">Type:</Label>
+          <InputText
             type="text"
             id="type"
+            name="type"
             placeholder="Type"
             onChange={changeHandler}
           />
+         <SaveAction>
           <SaveButton id="save-button-add-dragon" onClick={submitHandler}>
-            <FaSave size={54} /> Save new dragon
+            <FaSave size={25} /> Save
           </SaveButton>
-          <div>{props.error && <ErrorMessage>{props.error}</ErrorMessage>}</div>
+          </SaveAction>
+          {props.error && <ErrorMessage>{props.error}</ErrorMessage>}
+          </Group>
         </NewDragonContainer>
       )}
     </>

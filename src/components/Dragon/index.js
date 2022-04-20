@@ -17,8 +17,15 @@ import {
   DetailsCreatedDate,
   Logo,
   Actions,
+  ActionItem,
   InputText,
-  ErrorMessage
+  ErrorMessage,
+  Label,
+  Title,
+  Group,
+  GroupContainer,
+  DetailsName,
+  DetailsType
 } from './styles'
 
 const Dragon = props => {
@@ -69,32 +76,33 @@ const Dragon = props => {
 
   const editMode = () => {
     return (
-      <>
-        <div>
+      <Group>
+        <Title> Edit dragon </Title>
+          <Label for="name">Name: </Label>
           <InputText
             type="text"
             id="name"
+            name="name"
             value={dragonDetails.name}
             onChange={changeHandler}
           />
-        </div>
-        <div>
+          <Label for="type">Type: </Label>
           <InputText
             type="text"
             id="type"
+            name="type"
             value={dragonDetails.type}
             onChange={changeHandler}
           />
-        </div>
-      </>
+      </Group>
     )
   }
   const infoMode = () => {
     return (
       <>
         <div>
-          <h2>{dragonDetails.name}</h2>
-          <h3>{dragonDetails.type}</h3>
+          <DetailsName>Name: {dragonDetails.name}</DetailsName>
+          <DetailsType>Type: {dragonDetails.type}</DetailsType>
         </div>
       </>
     )
@@ -117,30 +125,30 @@ const Dragon = props => {
   )
 
   return (
-    <>
+    <GroupContainer>
       <Logo>
         <FaDragon size={92} />
       </Logo>
       {display}
       <Actions>
-        <span onClick={goBackHandler}>
-          <FaArrowCircleLeft size={32} />
-        </span>
-        <span onClick={editDragonHandler}>
-          <FaEdit size={32} />
-        </span>
+        <ActionItem onClick={goBackHandler}>
+          <FaArrowCircleLeft size={32} title="Go Back" />
+        </ActionItem>
+        <ActionItem onClick={editDragonHandler} >
+          <FaEdit size={32} title="Edit" />
+        </ActionItem>
         {isEdit ? (
-          <span onClick={saveDragonHandler}>
-            <FaSave size={24} />
-          </span>
+          <ActionItem onClick={saveDragonHandler}>
+            <FaSave size={24} title="Save Changes" />
+          </ActionItem>
         ) : (
-          <span onClick={deleteDragonHandler}>
-            <FaTrashAlt size={24} />
-          </span>
+          <ActionItem onClick={deleteDragonHandler}>
+            <FaTrashAlt size={24} title="Delete" />
+          </ActionItem>
         )}
       </Actions>
       <>{props.error && <ErrorMessage>{props.error}</ErrorMessage>}</>
-    </>
+      </GroupContainer>
   )
 }
 
