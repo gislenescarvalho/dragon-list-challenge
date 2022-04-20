@@ -9,12 +9,13 @@ export const ActionsList = styled.span`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  & svg {
-    color: #013a20;
-  }
   & :hover {
     color: #013a20;
   }
+  > svg {
+    color: #013a20;
+  }
+
   > span {
     font-size: 21px;
     padding-left: 8px;
@@ -22,12 +23,7 @@ export const ActionsList = styled.span`
 `
 
 export const Dragon = styled.div`
-  display: flex;
-  flex-grow: 1;
-  padding: 2px 0;
-  & svg {
-    color: #013a20;
-  }
+  padding: 5px 0;
 `
 
 export const List = styled.ul`
@@ -36,14 +32,21 @@ export const List = styled.ul`
 
 export const ListItem = styled.li`
   list-style: none;
-  flex-grow: 2;
-  & :hover {
-    color: #bdbdbd;
-    cursor: pointer;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid #013a20;
+  border-radius: 25px;
+  & svg {
+    margin: 4px;
   }
 `
-export const Item = styled.span`
+export const AddNewDragonBtn = styled.span`
   cursor: pointer;
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 15px;
 `
 
 export const ErrorMessage = styled.p`

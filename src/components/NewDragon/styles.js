@@ -5,8 +5,6 @@ export const NewDragonContainer = styled.div`
   flex-direction: column;
   width: 250px;
   height: 100%;
-  border: solid 1px #b1b1b1;
-  border-radius: 25px;
   padding: 10px;
   margin: 10px;
 `

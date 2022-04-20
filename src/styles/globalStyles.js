@@ -6,6 +6,9 @@ export default createGlobalStyle`
         margin: 0;
         outline: 0;
         transition: 0.1s;
+        background-color: #B9B7BD;
+        background: ${props => props.theme.background};
+        color: ${props => props.theme.text};
     } 
     .container {
         margin: auto;
@@ -15,7 +18,6 @@ export default createGlobalStyle`
         
     }
     .header {
-        background-color: #B9B7BD;
         min-height: 100vh;
         display: flex;
         flex-direction: column;
@@ -25,8 +27,6 @@ export default createGlobalStyle`
         }
 
     body {
-        background: ${props => props.theme.background};
-        color: ${props => props.theme.text};
         margin: 0;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
         -webkit-font-smoothing: antialiased;
@@ -36,9 +36,13 @@ export default createGlobalStyle`
         color: ${props => props.theme.titles};
         
     }
-    .accent {
-        background-color: ${props => props.theme.accent};
+    .switch-theme {
+        background-color: ${props => props.theme.changeThemeBtn};
         color: ${props => props.theme.text};
+        border-radius: 25px;
+        padding: 5px;
+        margin: 10px;
         height: 30px;
+        width: 125px;
     }
 `

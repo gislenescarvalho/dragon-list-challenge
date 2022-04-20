@@ -27,8 +27,9 @@ const Dragon = props => {
   const [wasDeleted, setWasDeleted] = useState(false)
 
   useEffect(() => {
+    const { state } = props.location
     setDragonDetails({
-      ...props.location?.state
+      ...state
     })
     setWasDeleted(false)
   }, [])
@@ -128,17 +129,15 @@ const Dragon = props => {
         <span onClick={editDragonHandler}>
           <FaEdit size={32} />
         </span>
-        {isEdit
-          ? (
+        {isEdit ? (
           <span onClick={saveDragonHandler}>
             <FaSave size={24} />
           </span>
-            )
-          : (
+        ) : (
           <span onClick={deleteDragonHandler}>
             <FaTrashAlt size={24} />
           </span>
-            )}
+        )}
       </Actions>
       <>{props.error && <ErrorMessage>{props.error}</ErrorMessage>}</>
     </>

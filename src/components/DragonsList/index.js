@@ -3,8 +3,17 @@ import { connect } from 'react-redux'
 import * as actions from '../../store/actions'
 import NewDragon from '../NewDragon'
 import Loading from '../Loading'
-import { FaDragon, FaPlus } from 'react-icons/fa'
-import { Dragon, List, DragonList, Logo, ErrorMessage, ActionsList, ListItem } from './styles'
+import { FaDragon, FaPlus, FaArrowCircleLeft } from 'react-icons/fa'
+import {
+  Dragon,
+  List,
+  DragonList,
+  Logo,
+  ErrorMessage,
+  ActionsList,
+  AddNewDragonBtn,
+  ListItem
+} from './styles'
 
 const DragonsList = props => {
   const [isAddingNew, setIsAddingNew] = useState(false)
@@ -19,20 +28,18 @@ const DragonsList = props => {
 
   const getDragonList = props => {
     const { loading } = props
-    return loading
-      ? (
+    return loading ? (
       <Loading />
-        )
-      : (
-          props.dragonsList.map(dragon => (
-        <Dragon key={dragon.id} >
-          <FaDragon />
+    ) : (
+      props.dragonsList.map(dragon => (
+        <Dragon key={dragon.id}>
           <ListItem onClick={onClickDragonHandler.bind(this, dragon)}>
+            <FaDragon />
             {dragon.name}
           </ListItem>
         </Dragon>
-          ))
-        )
+      ))
+    )
   }
 
   return (
@@ -44,17 +51,27 @@ const DragonsList = props => {
         <List>{getDragonList(props)}</List>
         <div>
           <hr />
+          <div>{isAddingNew && <NewDragon />}</div>
           <ActionsList>
-            <FaPlus size={25} />
-            <span onClick={addNewDragonHandler}>Add New Dragon</span>
+            <AddNewDragonBtn onClick={addNewDragonHandler}>
+              {' '}
+              {!isAddingNew ? (
+                <>
+                  {' '}
+                  <FaPlus size={25} /> Add Dragon{' '}
+                </>
+              ) : (
+                <>
+                  {' '}
+                  <FaArrowCircleLeft size={25} /> Cancel Add Dragon{' '}
+                </>
+              )}
+            </AddNewDragonBtn>
           </ActionsList>
         </div>
-        <div>{isAddingNew && <NewDragon />}</div>
-        <div>
-          {props.error && <ErrorMessage>{props.error}</ErrorMessage>}
-        </div>
+        <div>{props.error && <ErrorMessage>{props.error}</ErrorMessage>}</div>
       </div>
-      </DragonList>
+    </DragonList>
   )
 }
 

@@ -2,7 +2,14 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../../store/actions'
 import { FaDragon } from 'react-icons/fa'
-import { SignButtons, Button, Logo, LoginContainer, InputText, ErrorMessage } from './styles'
+import {
+  SignButtons,
+  Button,
+  Logo,
+  LoginContainer,
+  InputText,
+  ErrorMessage
+} from './styles'
 
 const Login = props => {
   const { isLoggedIn, error } = props
@@ -35,7 +42,10 @@ const Login = props => {
     return (
       <SignButtons>
         <Button type="submit">Sign in</Button>
-        <Button type="button" onClick={signUpHandler}> Sign up </Button>
+        <Button type="button" onClick={signUpHandler}>
+          {' '}
+          Sign up{' '}
+        </Button>
       </SignButtons>
     )
   }

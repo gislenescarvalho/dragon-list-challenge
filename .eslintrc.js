@@ -7,11 +7,11 @@ module.exports = {
     mocha: true
   },
   extends: [
-    "plugin:react/recommended",
-    "standard",
-    "plugin:react/jsx-runtime",
-    "plugin:testing-library/react",
-    "plugin:jest/all",
+    'plugin:react/recommended',
+    'standard',
+    'plugin:react/jsx-runtime',
+    'plugin:testing-library/react',
+    'plugin:jest/all',
     'plugin:security/recommended'
   ],
   globals: {
@@ -26,8 +26,8 @@ module.exports = {
     requireConfigFile: false,
     sourceType: 'module',
     babelOptions: {
-      presets: ["@babel/preset-react"]
-   },
+      presets: ['@babel/preset-react']
+    }
   },
   settings: {
     react: {

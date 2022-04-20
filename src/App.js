@@ -13,31 +13,32 @@ const App = props => {
   const { isLoggedIn } = props
 
   const getRoutes = () => {
-    return !isLoggedIn
-      ? (
+    return !isLoggedIn ? (
       <Switch>
         <Route path="/" exact component={Login} />
         <Redirect to="/" />
       </Switch>
-        )
-      : (
+    ) : (
       <Switch>
         <Route path="/" exact component={Login} />
         <Route path="/dragon/:id" render={props => <Dragon {...props} />} />
         <Route path="/list" exact component={DragonList} />
         <Redirect to="/" />
       </Switch>
-        )
+    )
   }
 
   return (
     <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
       <div className="container">
         <GlobalStyles />
-        <header className="header">{getRoutes()}</header>
-        <button className="accent" onClick={() => setIsDarkTheme(!isDarkTheme)}>
+        <button
+          className="switch-theme"
+          onClick={() => setIsDarkTheme(!isDarkTheme)}
+        >
           Dark Mode: {isDarkTheme ? 'On' : 'Off'}
         </button>
+        <header className="header">{getRoutes()}</header>
       </div>
     </ThemeProvider>
   )
