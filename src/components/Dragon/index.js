@@ -78,7 +78,7 @@ const Dragon = props => {
     return (
       <Group>
         <Title> Edit dragon </Title>
-          <Label for="name">Name: </Label>
+          <Label for="name">Change name: </Label>
           <InputText
             type="text"
             id="name"
@@ -86,7 +86,7 @@ const Dragon = props => {
             value={dragonDetails.name}
             onChange={changeHandler}
           />
-          <Label for="type">Type: </Label>
+          <Label for="type">Change type: </Label>
           <InputText
             type="text"
             id="type"
@@ -100,10 +100,9 @@ const Dragon = props => {
   const infoMode = () => {
     return (
       <>
-        <div>
           <DetailsName>Name: {dragonDetails.name}</DetailsName>
           <DetailsType>Type: {dragonDetails.type}</DetailsType>
-        </div>
+          <hr/>
       </>
     )
   }
@@ -112,24 +111,26 @@ const Dragon = props => {
     return isEdit ? editMode() : infoMode()
   }
 
-  const display = (
+  const infoDetails = (
     <DragonDetails>
-      {setDisplayMode()}
       <FirstRowInfo>
         <DetailsId>Id: {dragonDetails.id}</DetailsId>
         <DetailsCreatedDate>
           Created at: {formatDate(dragonDetails.createdAt)}
         </DetailsCreatedDate>
       </FirstRowInfo>
+      {setDisplayMode()}
     </DragonDetails>
   )
 
   return (
-    <GroupContainer>
+    
+    <>
       <Logo>
         <FaDragon size={92} />
       </Logo>
-      {display}
+      <GroupContainer>
+      {infoDetails}
       <Actions>
         <ActionItem onClick={goBackHandler}>
           <FaArrowCircleLeft size={32} title="Go Back" />
@@ -149,6 +150,7 @@ const Dragon = props => {
       </Actions>
       <>{props.error && <ErrorMessage>{props.error}</ErrorMessage>}</>
       </GroupContainer>
+    </>
   )
 }
 

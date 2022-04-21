@@ -11,8 +11,9 @@ export default createGlobalStyle`
         color: ${props => props.theme.text};
     } 
     .container {
-        margin: auto;
-        width: 50%;        
+        display: flex;
+        justify-content: center;
+        margin: auto;    
         padding: 10px;
         text-align: center;
         
@@ -32,14 +33,18 @@ export default createGlobalStyle`
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;        
     }
-    h1 {
+    h1, h2, legend, label {
         color: ${props => props.theme.titles};
         
     }
     .switch-theme {
+        position: fixed;
         background-color: ${props => props.theme.changeThemeBtn};
-        color: ${props => props.theme.text};
+        color: ${props => props.theme.textBtn};
         border-radius: 25px;
+        font-weight: bolder;
+        font-size: 14px;
+        top: 24px;
         padding: 5px;
         margin: 10px;
         height: 30px;

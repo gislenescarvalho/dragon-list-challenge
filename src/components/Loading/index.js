@@ -1,13 +1,11 @@
 import React from 'react'
-import { SpinnerContainer } from './styles'
+import { Rotate } from './styles'
 
 const Loading = () => {
   return (
-    <SpinnerContainer>
-      <svg className="spinner" role="alert" aria-live="assertive">
-        <circle cx="30" cy="30" r="20" className="circle" />
-      </svg>
-    </SpinnerContainer>
+    <Rotate>
+      &lt; <span role="img" aria-label="Loading"> ⌛ </span> &gt;
+    </Rotate>
   )
 }
 

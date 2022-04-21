@@ -29,11 +29,12 @@ const DragonsList = props => {
   }
 
   const getDragonList = props => {
-    const { loading } = props
-    return loading ? (
+    const { loading, dragonsList } = props
+    
+    return loading || !dragonsList.length ? (
       <Loading />
     ) : (
-      props.dragonsList.map(dragon => (
+      dragonsList.map(dragon => (
         <Dragon key={dragon.id}>
           <ListItem onClick={onClickDragonHandler.bind(this, dragon)}>
             <FaDragon />

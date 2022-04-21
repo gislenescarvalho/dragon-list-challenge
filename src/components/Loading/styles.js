@@ -1,26 +1,20 @@
 import styled, { keyframes } from 'styled-components'
 
-export const SpinnerContainer = styled.div`
-  & svg {
-    transform: rotate(-90deg);
-    width: 60px;
-    height: 60px;
-    & circle {
-      stroke-linecap: round;
-      stroke-dasharray: 360;
-      stroke-width: 6;
-      stroke: blue;
-      fill: transparent;
-      animation: spin 0.6s ease-in-out 0s normal infinite;
-    }
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
   }
-`
 
-export const Spin = keyframes`
-    from {
-        stroke-dashoffset: 360;
-    }
-    to {
-        stroke-dashoffset: 40;
-    }
-`
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+
+export const Rotate = styled.div`
+  display: inline-block;
+  animation: ${rotate} 2s linear infinite;
+  padding: 1rem 1rem;
+  font-size: 1rem;
+  background: transparent;
+`;

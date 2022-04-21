@@ -10,13 +10,13 @@ export const initLogin = () => {
 export const loginFail = () => {
   return {
     type: actionTypes.LOGIN_FAIL,
-    error: 'Invalid username/password'
+    error: 'Username and password must to have at least 4 characters!'
   }
 }
 
 export const login = credentials => {
   return dispatch => {
-    if (credentials.username.length > 4 && credentials.password.length > 4) {
+    if (credentials.username.length > 3 && credentials.password.length > 3) {
       dispatch(initLogin())
       dispatch(actions.getDragonsList())
     } else {

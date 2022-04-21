@@ -6,8 +6,8 @@ export const LoginContainer = styled.form`
   flex-direction: column;
   justify-content: center;
   & input {
-    background: #282c34;
-    color: #fff;
+    color: #282c34;
+    background: #fff;
     text-align: center;
   }
   & button {
