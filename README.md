@@ -14,7 +14,7 @@ In the project directory, you can run:
 
 ## Application Demo deployed on Vercel 
 
-https://dragon-list-challenge-8wttg7zls-gislenescarvalho.vercel.app/
+https://dragon-list-challenge.vercel.app/
 
 
 Enjoy it!
